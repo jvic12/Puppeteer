@@ -20,7 +20,7 @@ cron{'gitPull':
    command => 'cd /root/Puppeteer/ && git pull',
    user => 'root',
    hour => '*',
-   minute => 1,
+   minute => '*/1',
 }
 
 }
