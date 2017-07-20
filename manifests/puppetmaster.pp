@@ -19,7 +19,7 @@ file {'/etc/resolv.conf':
 cron{'gitPull':
    command => 'cd /root/Puppeteer/ && git pull',
    user => 'root',
-   hour => 0,
+   hour => '*',
    minute => 1,
 }
 
