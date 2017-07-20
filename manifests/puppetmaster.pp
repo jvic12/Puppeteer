@@ -23,4 +23,18 @@ cron{'gitPull':
    minute => '*/1',
 }
 
+cron{'apply':
+   command => 'puppet apply /root/Puppeteer/manifests/puppetmaster.pp',
+   user => 'root',
+   hour => 8,
+   minute => 0,
+}
+
+user { 'jvic':
+   ensure => 'present',
+   uid => 1000,
+   gid => 1000,
+   groups => 'wheel',
+}
+
 }
