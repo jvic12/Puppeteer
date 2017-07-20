@@ -5,15 +5,22 @@ file { '/etc/hosts':
     owner  => "root",
     group  => "root",
     mode   => "644",
-    source => "~/Puppeteer/hosts",
+    source => "/root/Puppeteer/hosts",
 }
 
 file {'/etc/resolv.conf':
    ensure => "file",
    owner => "root",
    group => "root",
-   mode => "644".
-   source => "~/Puppeteer/resolv.conf",
+   mode => "644",
+   source => "/root/Puppeteer/resolv.conf",
+}
+
+cron{'gitPull':
+   command => 'cd /root/Puppeteer/ && git pull',
+   user => 'root',
+   hour => 0,
+   minute => 1,
 }
 
 }
